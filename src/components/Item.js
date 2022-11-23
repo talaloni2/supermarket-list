@@ -1,14 +1,13 @@
 import "./Item.css"
 import ItemDescription from "./ItemDescription.js"
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Item(props) {
-    // let navigate = useNavigate();
+    let navigate = useNavigate();
     const onItemClick = () => {
-        console.log("click")
-        // navigate("/details", {...props})
+        navigate("/item/"+props.name);
     }
 
     return (
