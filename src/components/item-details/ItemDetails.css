@@ -49,6 +49,7 @@
 .itemdetails-label {
     width: 30%;
     white-space: normal;
+    font-weight: bold;
 }
 
 .itemdetails-extraImage {
