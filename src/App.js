@@ -2,8 +2,7 @@
 import './App.css';
 import Home from './components/Home';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ItemDetails from './components/ItemDetails';
-import Poop from './components/Poop';
+import ItemDetails from './components/item-details/ItemDetails';
 
 const router = createBrowserRouter([
   {
@@ -13,10 +12,6 @@ const router = createBrowserRouter([
   {
     path: "item/:itemId",
     element: <ItemDetails />
-  },
-  {
-    path: "poop",
-    element: <Poop />
   }
 
 ]);
