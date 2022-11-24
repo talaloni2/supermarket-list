@@ -1,4 +1,3 @@
-import data from "../data.json"
 import "./NameWithLogo.css"
 
 export default function NameWithLogo(props) {
