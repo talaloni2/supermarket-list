@@ -10,7 +10,7 @@
 }
 
 .item:hover {
-    box-shadow: 0 4px 16px rgba(145, 125, 125, 0.177);
+    box-shadow: 10px 8px 10px rgba(145, 125, 125, 0.285);
 }
 
 .image-with-frame {
