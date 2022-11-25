@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(145, 125, 125, 0);
+    box-shadow: 0 2px 8px rgba(145, 125, 125, 0.603);
     padding: 0.5rem;
     margin: 1rem;
     border-radius: 12px;
@@ -10,7 +10,7 @@
 }
 
 .item:hover {
-    box-shadow: 10px 8px 10px rgba(145, 125, 125, 0.285);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.603);
 }
 
 .image-with-frame {
