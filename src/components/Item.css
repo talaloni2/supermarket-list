@@ -2,15 +2,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(145, 125, 125, 0.603);
+    box-shadow: 0 2px 8px rgba(145, 125, 125, 0);
     padding: 0.5rem;
-    margin: 1rem 0;
+    margin: 1rem;
     border-radius: 12px;
     background-color: rgb(145, 125, 125);
 }
 
 .item:hover {
-    box-shadow: 0 4px 16px rgba(145, 125, 125, 0.603);
+    box-shadow: 0 4px 16px rgba(145, 125, 125, 0.177);
 }
 
 .image-with-frame {

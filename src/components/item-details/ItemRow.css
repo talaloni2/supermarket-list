@@ -1,0 +1,21 @@
+.itemrow {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(145, 125, 125, 0.603);
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    width: 70%;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.itemrow-label {
+    width: 30%;
+    white-space: normal;
+    font-weight: bold;
+}
+
+.itemrow-value {
+    size: 2rem;
+}
