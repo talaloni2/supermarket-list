@@ -1,7 +1,7 @@
-import "./NameWithLogo.css"
+import "./ItemHeader.css"
 
-export default function NameWithLogo(props) {
-    let capitalizedName = props.name.charAt(0).toUpperCase() + props.name.slice(1);;
+export default function ItemHeader(props) {
+    let capitalizedName = props.name.charAt(0).toUpperCase() + props.name.slice(1);
     return (
         <div className="nameWithLogo">
             <div className="name">{capitalizedName}</div>

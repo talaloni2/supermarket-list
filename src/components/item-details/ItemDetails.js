@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
-import data from "../data.json"
-import NameWithLogo from "./NameWithLogo";
+import data from "../../common/data.json"
+import ItemHeader from "./item-header/ItemHeader";
 import "./ItemDetails.css"
-import ItemRow from "./ItemRow";
+import ItemRow from "./item-row/ItemRow";
 
 export default function ItemDetails() {
     let { itemId } = useParams();
     let item = data[itemId];
     return (
     <div className="itemdetails-detailsCard">
-        <NameWithLogo name={item.name} photo={item.photo}></NameWithLogo>
+        <ItemHeader name={item.name} photo={item.photo}></ItemHeader>
 
         <ItemRow label="Price:" value={("" + item.price) + " ILS"}/>
         <ItemRow label="Description:" value={item.description}/>

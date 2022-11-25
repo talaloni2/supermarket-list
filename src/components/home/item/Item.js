@@ -1,5 +1,5 @@
 import "./Item.css"
-import ItemDescription from "./ItemDescription.js"
+import ItemDescription from "./item-description/ItemDescription.js"
 import { useNavigate } from 'react-router-dom';
 
 

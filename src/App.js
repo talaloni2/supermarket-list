@@ -1,6 +1,6 @@
 
 import './App.css';
-import Home from './components/Home';
+import Home from './components/home/Home';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ItemDetails from './components/item-details/ItemDetails';
 

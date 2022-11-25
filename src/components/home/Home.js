@@ -1,5 +1,5 @@
-import Item from "./Item";
-import data from "./data.json"
+import Item from "./item/Item";
+import data from "../../common/data.json"
 
 export default function Home() {
     return (
