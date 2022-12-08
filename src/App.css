@@ -1,3 +1,9 @@
+:root {
+  --background: #d3d3d3;
+  --card-background: #FFFFFF;
+  background-color: var(--background);
+}
+
 .App {
   text-align: center;
 }

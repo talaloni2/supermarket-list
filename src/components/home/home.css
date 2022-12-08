@@ -1,0 +1,6 @@
+.item-card {
+    width: 50%;
+    border: 3px solid var(--card-background);
+    padding: 10px;
+    margin: 16px auto auto;
+}
