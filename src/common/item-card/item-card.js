@@ -12,7 +12,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 export default function ItemCard(props) {
 
-    const {name, price, photo, description, enableAdding, onAddClick} = props
+    const {name, price, photo, description, enableAdding, onAddClick, id} = props
 
     return (
         <Card
@@ -35,7 +35,7 @@ export default function ItemCard(props) {
                 </Typography>
             </CardContent>
             {enableAdding && <CardActions className="card-action">
-                <IconButton onClick={() => onAddClick({name, price, photo, description})}>
+                <IconButton onClick={() => onAddClick({name, price, photo, description, id})}>
                     <AddIcon/>
                 </IconButton>
             </CardActions>}
