@@ -1,6 +1,6 @@
 import './home.css'
 
-import data from "../../common/data.json"
+// import data from "../../common/data.json"
 import { useEffect, useState } from "react";
 import ItemCard from '../../common/item-card/item-card'
 import AppBar from '../../common/app-bar/app-bar'
@@ -11,6 +11,7 @@ export default function Home() {
   let navigate = useNavigate();
 
   const [cart, setCart] = useState({});
+  const [products, setProducts] = useState([]);
 
   const onAddClick = item => {
     setCart(currCart => {
@@ -40,18 +41,13 @@ export default function Home() {
 
   const cartId = localStorage.getItem("cartId");
   useEffect(() => {
-    fetch("http://localhost:3000/cart/" + cartId, {
-      method: "get", headers: { 'Content-Type': 'application/json' }, mode: 'cors'
-    })
-      .then(Response => {
-        if (!Response.ok) {
-          return { cartId, cartItems: [] };
-        }
-        return Response.json();
-      })
-      .then(response => setCart(response))
-      .catch((err) => console.log(err))
+    populateCart(cartId, setCart);
   }, [cartId]
+  );
+
+  useEffect(() => {
+    populateProducts(setProducts);
+  }, []
   );
 
   return (
@@ -61,7 +57,7 @@ export default function Home() {
         buttonIcon=<ShoppingCartIcon />
         onButtonClick={onCartClick}
       />
-      {Object.values(data).map((answer, i) => {
+      {Object.values(products).map((answer, i) => {
         return <ItemCard
           key={i}
           id={answer.id}
@@ -77,3 +73,34 @@ export default function Home() {
     </div>
   );
 }
+
+
+function populateCart(cartId, setCart) {
+  fetch("http://localhost:3000/cart/" + cartId, {
+    method: "get", headers: { 'Content-Type': 'application/json' }, mode: 'cors'
+  })
+    .then(Response => {
+      if (!Response.ok) {
+        return { cartId, cartItems: [] };
+      }
+      return Response.json();
+    })
+    .then(response => setCart(response))
+    .catch((err) => console.log(err));
+}
+
+
+function populateProducts(setProducts) {
+  fetch("http://localhost:3000/products", {
+    method: "get", headers: { 'Content-Type': 'application/json' }, mode: 'cors'
+  })
+    .then(Response => {
+      if (!Response.ok) {
+        return [];
+      }
+      return Response.json();
+    })
+    .then(response => setProducts(response))
+    .catch((err) => console.log(err));
+}
+
