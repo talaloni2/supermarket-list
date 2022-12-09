@@ -1,7 +1,7 @@
 import './home.css'
 
 import data from "../../common/data.json"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemCard from '../../common/item-card/item-card'
 import AppBar from '../../common/app-bar/app-bar'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -14,23 +14,45 @@ export default function Home() {
 
   const onAddClick = item => {
     setCart(currCart => {
-      let cartItem = currCart[item.id] || { item, count: 0 };
+      let cartItem = currCart.cartItems.find(cartItem => cartItem.item.name === item.name);
+      if (cartItem === undefined){
+        cartItem = {count: 0, item};
+        currCart.cartItems.push(cartItem);
+      }
       cartItem.count += 1;
-      currCart[item.id] = cartItem;
       console.log(currCart);
       return currCart;
     })
   };
 
   const onCartClick = () => {
+    const savedCart = {
+      cartId, cartItems: cart
+    }
     fetch("http://localhost:3000/cart", {
       method: "post", headers: { 'Content-Type': 'application/json' }, mode: 'cors',
       body: JSON.stringify(cart)
     })
       .then((Response) => Response.json())
-       
+
     navigate("cart")
   }
+
+  const cartId = localStorage.getItem("cartId");
+  useEffect(() => {
+    fetch("http://localhost:3000/cart/" + cartId, {
+      method: "get", headers: { 'Content-Type': 'application/json' }, mode: 'cors'
+    })
+      .then(Response => {
+        if (!Response.ok) {
+          return { cartId, cartItems: [] };
+        }
+        return Response.json();
+      })
+      .then(response => setCart(response))
+      .catch((err) => console.log(err))
+  }, [cartId]
+  );
 
   return (
     <div>
@@ -46,6 +68,7 @@ export default function Home() {
           name={answer.name}
           price={answer.price}
           photo={answer.photo}
+          count={0}
           description={answer.description}
           enableAdding
           onAddClick={onAddClick}
