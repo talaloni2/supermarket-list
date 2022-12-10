@@ -1,7 +1,15 @@
-.card-action {
+.right {
     float: right;
 }
 
-.content-line {
-    font-family: 'Arial';
+.left {
+    float: left;
+}
+
+.MuiCardHeader-root {
+    text-align: left;
+}
+
+.MuiCardContent-root {
+    text-align: left;
 }

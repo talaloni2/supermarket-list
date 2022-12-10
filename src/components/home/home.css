@@ -3,4 +3,5 @@
     border: 3px solid var(--card-background);
     padding: 10px;
     margin: 16px auto auto;
+    text-align: center;
 }

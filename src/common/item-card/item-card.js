@@ -9,34 +9,39 @@ import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
+import Badge from '@mui/material/Badge';
 
 export default function ItemCard(props) {
 
-    const { name, price, photo, description, enableAdding, onAddClick, id, count } = props
+    const {item, enableAdding, onAddClick} = props
 
     return (
         <Card
             sx={{ maxWidth: 345, padding: "1em 1em 0 1em" }}
             className="item-card">
-            <CardHeader title={name} />
-            <CardMedia
-                sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
-                height="200"
-                width="345"
-                component="img"
-                image={photo}
-                alt=":(" />
+            <CardHeader title={item.name} />
+            <Badge color="secondary" badgeContent={item.count ? item.count : 0} className="center">
+                <CardMedia
+                    sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
+                    height="200"
+                    width="345"
+                    component="img"
+                    image={item.photo}
+                    alt=":(" />
+            </Badge>
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    {description}
-                </Typography>
-                <Typography variant="body3" color="text.secondary">
-                    {"price: " + price + "₪"}
+                    {item.description}
                 </Typography>
             </CardContent>
-            {enableAdding && <CardActions className="card-action">
-                <IconButton onClick={() => onAddClick({ name, price, photo, description, id })}>
-                    <AddIcon />
+            <CardContent>
+                <Typography variant="body3" color="text.secondary">
+                    {"price: " + item.price + "₪"}
+                </Typography>
+            </CardContent>
+            {enableAdding && <CardActions className="right">
+                <IconButton onClick={() => onAddClick(item)}>
+                    <AddIcon/>
                 </IconButton>
             </CardActions>}
         </Card>

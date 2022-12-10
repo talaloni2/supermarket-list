@@ -38,18 +38,14 @@ export default function Home() {
         <div>
             <AppBar
                 title="Cart"
-                buttonIcon=<ShoppingBagIcon />
+                buttonIcon=<ShoppingBagIcon/>
                 onButtonClick={onShoppingListClick}
             />
             {cart.cartItems.map((answer, i) => {
                 return <ItemCard
                     key={i}
-                    name={answer.item.name}
-                    price={answer.item.price}
-                    photo={answer.item.photo}
-                    description={answer.item.description}
-                    onAddClick={() => { }}
-                    count={answer.count}
+                    item={answer}
+                    onAddClick={() => {}}
                 />
             })}
 
@@ -68,6 +64,6 @@ async function onSaveCart(cart, navigate) {
         body: JSON.stringify(cart)
       })
         .then((Response) => Response.json())
-  
+
       navigate("cart")
 }
