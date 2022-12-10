@@ -21,7 +21,7 @@ export default function Home() {
             }
             cartItem.count += 1;
             console.log(currCart);
-            return [...currCart];
+            return {...currCart};
         })
     };
 
@@ -29,7 +29,7 @@ export default function Home() {
         const savedCart = {
             cartId, cartItems: cart
         }
-        fetch("http://localhost:3000/cart", {
+        fetch("http://localhost:3002/cart", {
             method: "post", headers: {'Content-Type': 'application/json'}, mode: 'cors',
             body: JSON.stringify(cart)
         })
@@ -56,7 +56,7 @@ export default function Home() {
                 buttonIcon=<ShoppingCartIcon/>
             onButtonClick={onCartClick}
             />
-            {Object.values(data).map((answer, i) => {
+            {products.map((answer, i) => {
                 return <ItemCard
                     key={i}
                     item={answer}
@@ -70,7 +70,7 @@ export default function Home() {
 
 
 function populateCart(cartId, setCart) {
-    fetch("http://localhost:3000/cart/" + cartId, {
+    fetch("http://localhost:3002/cart/" + cartId, {
         method: "get", headers: {'Content-Type': 'application/json'}, mode: 'cors'
     })
         .then(Response => {
@@ -85,7 +85,7 @@ function populateCart(cartId, setCart) {
 
 
 function populateProducts(setProducts) {
-    fetch("http://localhost:3000/products", {
+    fetch("http://localhost:3002/products", {
         method: "get", headers: {'Content-Type': 'application/json'}, mode: 'cors'
     })
         .then(Response => {
@@ -97,4 +97,3 @@ function populateProducts(setProducts) {
         .then(response => setProducts(response))
         .catch((err) => console.log(err));
 }
-

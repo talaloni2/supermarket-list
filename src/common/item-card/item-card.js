@@ -13,14 +13,14 @@ import Badge from '@mui/material/Badge';
 
 export default function ItemCard(props) {
 
-    const {item, enableAdding, onAddClick} = props
+    const {item, count, enableAdding, onAddClick} = props
 
     return (
         <Card
             sx={{ maxWidth: 345, padding: "1em 1em 0 1em" }}
             className="item-card">
             <CardHeader title={item.name} />
-            <Badge color="secondary" badgeContent={item.count ? item.count : 0} className="center">
+            <Badge color="secondary" badgeContent={count ? count : 0} className="center">
                 <CardMedia
                     sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
                     height="200"

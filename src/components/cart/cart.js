@@ -18,11 +18,10 @@ export default function Home() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:3000/cart/" + cartId, {
+        fetch("http://localhost:3002/cart/" + cartId, {
             method: "get", headers: { 'Content-Type': 'application/json' }, mode: 'cors'
         })
             .then(Response => {
-                debugger;
                 if (!Response.ok) {
                     return { cartId, cartItems: [] };
                 }
@@ -44,7 +43,8 @@ export default function Home() {
             {cart.cartItems.map((answer, i) => {
                 return <ItemCard
                     key={i}
-                    item={answer}
+                    item={answer.item}
+                    count={answer.count}
                     onAddClick={() => {}}
                 />
             })}
@@ -59,7 +59,7 @@ async function onSaveCart(cart, navigate) {
     const savedCart = {
         cartId, cartItems: cart
       }
-      fetch("http://localhost:3000/cart", {
+      fetch("http://localhost:3002/cart", {
         method: "post", headers: { 'Content-Type': 'application/json' }, mode: 'cors',
         body: JSON.stringify(cart)
       })
