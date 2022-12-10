@@ -16,6 +16,10 @@ export default function ItemCard(props) {
 
     const { item, count, enableAdding, enableSetCount, onAddClick, updateCount } = props
 
+    const itemUpdateCount = count => {
+        updateCount(item, count);
+    } 
+
     return (
         <Card
             sx={{ maxWidth: 345, padding: "1em 1em 0 1em" }}
@@ -37,7 +41,7 @@ export default function ItemCard(props) {
                 <Typography variant="body3" color="text.secondary">
                     {"price: " + item.price + "₪"}
                 </Typography>
-                {enableSetCount && <SelectCount count={count} updateCount={updateCount} />}
+                {enableSetCount && <SelectCount count={count} updateCount={itemUpdateCount} />}
             </CardContent>
             {enableAdding && <CardActions className="right">
                 <IconButton onClick={() => onAddClick(item)}>

@@ -6,7 +6,6 @@ import Select from '@mui/material/Select';
 
 export default function SelectCount(props) {
     const { count, updateCount } = props
-    const [currCount, setCurrCount] = React.useState(count)
 
     return (
         <div>
@@ -15,12 +14,12 @@ export default function SelectCount(props) {
                 <Select
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
-                    value={currCount}
-                    onChange={event => {updateCount(event.target.value); setCurrCount(event.target.value)}}
+                    value={count}
+                    onChange={event => updateCount(event.target.value)}
                     label="Count"
                 >
                     {[...Array(11).keys()].map(i => {
-                        return <MenuItem value={i}>{i}</MenuItem>
+                        return <MenuItem key={i} value={i}>{i}</MenuItem>
                     })
                     }
                 </Select>
