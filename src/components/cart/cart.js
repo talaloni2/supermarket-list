@@ -10,7 +10,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function Home() {
     let navigate = useNavigate();
     const cartId = localStorage.getItem("cartId");
-    // const cartId = "12345";
     const [cart, setCart] = useState({cartItems: []});
 
     const onShoppingListClick = () => {
@@ -27,7 +26,15 @@ export default function Home() {
                 }
                 return Response.json();
             })
-            .then(response => setCart(response))
+            .then(response => {
+                const cartItems = response.cartItems.map(cartItem => {
+                    const updateCount = (count) => {
+                        cartItem.count = count;
+                    }
+                    return {...cartItem, updateCount}
+                })
+                setCart({...response, cartItems})
+            })
             .catch((err) => console.log(err))
     }, [cartId]
     );
@@ -46,6 +53,8 @@ export default function Home() {
                     item={answer.item}
                     count={answer.count}
                     onAddClick={() => {}}
+                    updateCount={answer.updateCount}
+                    enableSetCount={true}
                 />
             })}
 
