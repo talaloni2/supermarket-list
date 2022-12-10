@@ -1,5 +1,6 @@
 {
     "water": {
+        "id": "1",
         "name": "water",
         "description": "Great Ein Gedi water. Buy fast while they last!",
         "price": "4",
@@ -8,6 +9,7 @@
         "extraImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-N5qi4DcT-kr5rBW9O85kJxgvsAq-bpuq2Tr4QmkHh9eBDFK0b6KMCWlbixzv2N2wtU&usqp=CAU"
     },
     "bread": {
+        "id": "2",
         "name": "bread",
         "description": "This stuff is selling like hotcakes",
         "price": "20",
@@ -16,6 +18,7 @@
         "extraImageUrl": "https://www.theseasonalhomestead.com/wp-content/uploads/2022/02/sourdough-bread.jpg"
     },
     "milk": {
+        "id": "3",
         "name": "milk",
         "description": "Got milk?",
         "price": "6.13",
@@ -24,6 +27,7 @@
         "extraImageUrl": "https://www.tnuva.co.il/uploads/f_55ffb59c0107b_1442821532.jpg"
     },
     "eggs": {
+        "id": "4",
         "name": "eggs",
         "description": "How did the hen get to work so fast? She used the eggs-press lane!",
         "price": "13",
