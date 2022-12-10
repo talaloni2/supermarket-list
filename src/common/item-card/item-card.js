@@ -28,19 +28,10 @@ export default function ItemCard(props) {
                 alt=":(" />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    <pre className="content-line">
-                        {description}
-                    </pre>
+                    {description}
                 </Typography>
                 <Typography variant="body3" color="text.secondary">
-                    <pre className="content-line">
-                        {"price: " + price + "₪"}
-                    </pre>
-                </Typography>
-                <Typography variant="body4" color="text.secondary">
-                    <pre className="content-line">
-                        {"selected amount: " + count}
-                    </pre>
+                    {"price: " + price + "₪"}
                 </Typography>
             </CardContent>
             {enableAdding && <CardActions className="card-action">
