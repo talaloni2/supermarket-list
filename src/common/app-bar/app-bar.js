@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 
 export default function ButtonAppBar(props) {
 
-    const {title, buttonIcon, onButtonClick} = props
+    const {title, cost, buttonIcon, onButtonClick} = props
 
     return (
         <Box sx={{flexGrow: 1}}>
@@ -16,6 +16,9 @@ export default function ButtonAppBar(props) {
                     <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                         {title}
                     </Typography>
+                    {cost !== undefined && <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                        Total price: {cost}₪
+                    </Typography>}
                     <IconButton
                         size="large"
                         aria-label="account of current user"
